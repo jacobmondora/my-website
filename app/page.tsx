@@ -263,36 +263,34 @@ export default function Component() {
 
   {/* Social Icons Row */}
   <div className="flex justify-center space-x-6 mt-10">
-    <Button
-      size="lg"
-      variant="ghost"
-      className="w-14 h-14 rounded-full bg-white/10 hover:bg-cyan-500/20 border border-white/20 hover:border-cyan-400/50 transition-all duration-300"
-      asChild
-    >
-      <a href="https://www.linkedin.com/in/jacob-mondora-b56289251/" target="_blank" rel="noreferrer">
-        <Linkedin className="w-6 h-6 text-white" />
-      </a>
-    </Button>
-    <Button
-      size="lg"
-      variant="ghost"
-      className="w-14 h-14 rounded-full bg-white/10 hover:bg-purple-500/20 border border-white/20 hover:border-purple-400/50 transition-all duration-300"
-      asChild
-    >
-      <a href="https://github.com/jacobmondora" target="_blank" rel="noreferrer">
-        <Github className="w-6 h-6 text-white" />
-      </a>
-    </Button>
-    <Button
-      size="lg"
-      variant="ghost"
-      className="w-14 h-14 rounded-full bg-white/10 hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all duration-300"
-      asChild
-    >
-      <a href="https://soundcloud.com/user-37673422" target="_blank" rel="noreferrer">
-        <Music className="w-6 h-6 text-white" />
-      </a>
-    </Button>
+    <a href="https://www.linkedin.com/in/jacob-mondora-b56289251/" target="_blank" rel="noreferrer">
+  <Button
+    size="lg"
+    variant="ghost"
+    className="w-14 h-14 rounded-full bg-white/10 hover:bg-cyan-500/20 border border-white/20 hover:border-cyan-400/50 transition-all duration-300"
+  >
+    <Linkedin className="w-6 h-6 text-white" />
+  </Button>
+</a>
+    <a href="https://github.com/jacobmondora" target="_blank" rel="noreferrer">
+  <Button
+    size="lg"
+    variant="ghost"
+    className="w-14 h-14 rounded-full bg-white/10 hover:bg-purple-500/20 border border-white/20 hover:border-purple-400/50 transition-all duration-300"
+  >
+    <Github className="w-6 h-6 text-white" />
+  </Button>
+</a>
+
+    <a href="https://soundcloud.com/user-37673422" target="_blank" rel="noreferrer">
+  <Button
+    size="lg"
+    variant="ghost"
+    className="w-14 h-14 rounded-full bg-white/10 hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all duration-300"
+  >
+    <Music className="w-6 h-6 text-white" />
+  </Button>
+</a>
   </div>
 </div>
 
