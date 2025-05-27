@@ -2,8 +2,15 @@ import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cn } from "@/lib/utils"
 
-const Button = React.forwardRef(
-  ({ className, asChild = false, ...props }, ref) => {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  asChild?: boolean
+  children?: React.ReactNode
+  size?: string
+  variant?: string
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, asChild = false, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
@@ -12,8 +19,10 @@ const Button = React.forwardRef(
           className
         )}
         ref={ref}
-        {...props} // ✅ this includes the onClick passed from the parent
-      />
+        {...props}
+      >
+        {children}
+      </Comp>
     )
   }
 )
