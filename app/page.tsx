@@ -234,7 +234,8 @@ export default function Component() {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-8">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-6 space-y-8 lg:space-y-0 lg:flex-row lg:flex-wrap lg:justify-center lg:items-center">
+
         {/* Central Name Display */}
 <div className="relative z-10 text-center">
   {/* Glow Aura Behind */}
@@ -298,7 +299,7 @@ export default function Component() {
 
         {/* Top Left - Resume */}
 <FloatingCard
-  className="absolute top-20 left-20 w-48"
+  className="w-full max-w-xs lg:absolute lg:top-20 lg:left-20"
   delay={200}
   href="/Jacob_Mondora_Resume_2024.pdf"
 >
@@ -314,7 +315,7 @@ export default function Component() {
 </FloatingCard>
 
         {/* Top Right - Fitness */}
-        <FloatingCard className="absolute top-32 right-16 w-52" delay={400}>
+        <FloatingCard className="w-full max-w-xs lg:absolute lg:top-20 lg:right-16" delay={400}>
           <div className="text-center">
             <Dumbbell className="w-8 h-8 mx-auto mb-3 text-green-400" />
             <h3 className="font-semibold mb-2 text-white">Fitness Journey</h3>
@@ -324,7 +325,8 @@ export default function Component() {
 
         {/* Left Side - Music Production */}
         <FloatingCard
-          className="absolute left-8 top-1/2 -translate-y-1/2 w-56"
+          className="w-full max-w-xs lg:absolute lg:left-8 lg:top-1/2 lg:-translate-y-1/2"
+
           delay={600}
           href="https://soundcloud.com/user-37673422"
         >
@@ -337,7 +339,7 @@ export default function Component() {
 
         {/* Bottom Left - Contact */}
         <FloatingCard
-          className="absolute bottom-24 left-24 w-44"
+          className="w-full max-w-xs lg:absolute lg:bottom-24 lg:left-24"
           delay={800}
           onClick={() => (window.location.href = "mailto:jacobmondora@gmail.com")}
         >
@@ -349,7 +351,7 @@ export default function Component() {
         </FloatingCard>
 
         {/* Bottom Right - About */}
-        <FloatingCard className="absolute bottom-20 right-20 w-52" delay={1000}>
+        <FloatingCard className="w-full max-w-xs lg:absolute lg:bottom-20 lg:right-20" delay={1000}>
           <div className="text-center">
             <div className="w-8 h-8 rounded-full mx-auto mb-3 bg-gradient-to-r from-cyan-400 to-purple-500"></div>
             <h3 className="font-semibold mb-2 text-white">About Me</h3>
@@ -507,7 +509,6 @@ export default function Component() {
             bottom: auto !important;
             transform: none !important;
             margin: 1rem auto;
-            display: none;
           }
         }
       `}</style>
