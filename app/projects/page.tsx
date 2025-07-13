@@ -236,7 +236,6 @@ export default function ProjectsPage() {
                           variant="secondary"
                           className="mt-2 bg-gradient-to-r from-blue-500/20 to-sky-400/20 text-blue-200 border-blue-400/30"
                         >
-                          {project.category}
                         </Badge>
                       </div>
                     </div>
