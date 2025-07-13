@@ -183,7 +183,7 @@ export default function Component() {
         </div>
 
         {/* Geometric chevron patterns */}
-        <div className="absolute inset-0 overflow-hidden opacity-30">
+        {/* <div className="absolute inset-0 overflow-hidden opacity-30">
           <div className="absolute top-1/6 right-1/4 w-32 h-32">
             <div className="absolute inset-0 border-l-2 border-t-2 transform rotate-45 animate-pulse-slow border-purple-400/40" />
             <div className="absolute inset-2 border-l-2 border-t-2 transform rotate-45 animate-float-1 border-cyan-400/30" />
@@ -193,7 +193,7 @@ export default function Component() {
             <div className="absolute inset-0 border-r-2 border-b-2 transform -rotate-12 animate-float-3 border-cyan-400/40" />
             <div className="absolute inset-2 border-r-2 border-b-2 transform -rotate-12 animate-twinkle-1 border-purple-400/30" />
           </div>
-        </div>
+        </div> */}
 
         {/* Neon flowing curves */}
         <div className="absolute inset-0 overflow-hidden">
@@ -335,7 +335,7 @@ export default function Component() {
         </FloatingCard>
 
         {/* Bottom Right - About */}
-        <FloatingCard className="w-full max-w-xs lg:absolute lg:bottom-20 lg:right-20" delay={1000}>
+        <FloatingCard className="w-full max-w-xs lg:absolute lg:bottom-20 lg:right-20" delay={1000} href="/projects">
           <div className="text-center">
             <Code className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
             <h3 className="font-semibold mb-2 text-white">Personal Projects</h3>

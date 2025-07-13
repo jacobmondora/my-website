@@ -9,7 +9,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Flag } from "lucide-react"
 import { useState } from "react"
 
-// TopoJSON with insets for Alaska and Hawaii
+type GeoFeature = {
+  type: "Feature";
+  geometry: {
+    type: string;
+    coordinates: unknown; // or number[][] if you want stricter typing
+  };
+  properties: {
+    name: string;
+    [key: string]: string | number | boolean | null | undefined;
+  };
+  rsmKey?: string;
+};
+
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"
 
 const visitedStates = [
@@ -75,7 +87,7 @@ export default function VisitedUSMap() {
         <div className="aspect-[4/3] bg-white/5 rounded-lg border border-blue-400/20 p-4">
           <ComposableMap projection="geoAlbersUsa" projectionConfig={{ scale: 1000 }}>
             <Geographies geography={geoUrl}>
-              {({ geographies }) =>
+              {({ geographies }: { geographies: GeoFeature[] }) =>
                 geographies.map((geo) => {
                   const name = geo.properties.name
                   const isVisited = visitedStates.includes(name)

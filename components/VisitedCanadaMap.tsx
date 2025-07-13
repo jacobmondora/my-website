@@ -9,6 +9,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Flag } from "lucide-react"
 import { useState } from "react"
 
+
+type GeoFeature = {
+  type: "Feature";
+  geometry: {
+    type: string;
+    coordinates: unknown; // or number[][] if you want stricter typing
+  };
+  properties: {
+    name: string;
+    [key: string]: string | number | boolean | null | undefined;
+  };
+  rsmKey?: string;
+};
+
 const geoUrl =
   "https://raw.githubusercontent.com/codeforgermany/click_that_hood/master/public/data/canada.geojson"
 
@@ -48,7 +62,7 @@ export default function VisitedCanadaMap() {
 >
             
               <Geographies geography={geoUrl}>
-                {({ geographies }) =>
+                {({ geographies }: { geographies: GeoFeature[] }) =>
                   geographies.map((geo) => {
                     const name = geo.properties.name
                     const isVisited = visitedProvinces.includes(name)

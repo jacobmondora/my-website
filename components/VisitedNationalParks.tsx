@@ -10,6 +10,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { TreePine } from "lucide-react"
 import { useState } from "react"
 
+type GeoFeature = {
+  type: "Feature";
+  geometry: {
+    type: string;
+    coordinates: unknown; // or number[][] if you want stricter typing
+  };
+  properties: {
+    name: string;
+    [key: string]: string | number | boolean | null | undefined;
+  };
+  rsmKey?: string;
+};
+
+
 const visitedNationalParks = [
   {
     name: "Yellowstone",
@@ -109,7 +123,7 @@ export default function VisitedNationalParks() {
         <div className="aspect-[4/3] bg-white/5 rounded-lg border border-green-400/20 p-4">
           <ComposableMap projection="geoAlbersUsa" projectionConfig={{ scale: 1000 }}>
             <Geographies geography="https://raw.githubusercontent.com/codeforgermany/click_that_hood/master/public/data/united-states.geojson">
-              {({ geographies }) =>
+              {({ geographies }: { geographies: GeoFeature[] }) =>
                 geographies.map((geo) => (
                   <Geography
                     key={geo.rsmKey}

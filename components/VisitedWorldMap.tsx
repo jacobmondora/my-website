@@ -49,7 +49,7 @@ export default function VisitedWorldMap() {
             <ZoomableGroup
               zoom={fixedZoom}
               center={fixedCenter}
-              onMoveEnd={({ coordinates }) => {
+              onMoveEnd={({ coordinates }: { coordinates: [number, number] }) => {
                 // if zoom changed, allow it; if panned, reset center
                 if (
                   coordinates[0] !== fixedCenter[0] ||
@@ -67,7 +67,7 @@ export default function VisitedWorldMap() {
               }}
             >
               <Geographies geography={geoUrl}>
-                {({ geographies }) =>
+                {({ geographies }: { geographies: import("react-simple-maps").GeoFeature[] }) =>
                   geographies.map((geo) => {
                     const isVisited = visitedCountries.includes(
                       geo.properties.name
