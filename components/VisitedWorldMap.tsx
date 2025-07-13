@@ -49,7 +49,7 @@ export default function VisitedWorldMap() {
             <ZoomableGroup
               zoom={fixedZoom}
               center={fixedCenter}
-              onMoveEnd={({ zoom, coordinates }) => {
+              onMoveEnd={({ coordinates }) => {
                 // if zoom changed, allow it; if panned, reset center
                 if (
                   coordinates[0] !== fixedCenter[0] ||

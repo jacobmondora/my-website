@@ -10,9 +10,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { TreePine } from "lucide-react"
 import { useState } from "react"
 
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
-
 const visitedNationalParks = [
   {
     name: "Yellowstone",

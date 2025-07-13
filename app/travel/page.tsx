@@ -1,8 +1,7 @@
 "use client"
 
-import { MapPin, Compass } from "lucide-react"
+import { MapPin } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import dynamic from "next/dynamic"
 
 // Dynamically import maps with SSR disabled

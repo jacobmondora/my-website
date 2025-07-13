@@ -4,7 +4,6 @@ import {
   ComposableMap,
   Geographies,
   Geography,
-  ZoomableGroup,
 } from "react-simple-maps"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Flag } from "lucide-react"
@@ -23,8 +22,7 @@ const visitedProvinces = [
 
 export default function VisitedCanadaMap() {
   const [tooltipContent, setTooltipContent] = useState("")
-  const fixedCenter: [number, number] = [-100, 60] // centered over Canada
-  const fixedZoom = 1.5
+
 
   return (
     <Card className="relative bg-gradient-to-br from-red-900/30 to-orange-900/20 border-red-400/40 backdrop-blur-md">
