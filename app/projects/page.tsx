@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState } from "react"
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Zap, Cpu, Music } from "lucide-react"
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Cpu} from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
