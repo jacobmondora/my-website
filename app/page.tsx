@@ -2,7 +2,7 @@
 
 import type * as React from "react"
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Music, Dumbbell, FileText, Mail, Download } from "lucide-react"
+import { Github, Linkedin, Music, FileText, Mail, Download, Code, Camera } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -79,15 +79,15 @@ export default function Component() {
       {/* Animated CSS Background */}
       <div className="absolute inset-0">
         {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800" />
 
         {/* Flowing orbs */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse-slow bg-gradient-to-r from-cyan-500/35 to-purple-600/40" />
-          <div className="absolute top-3/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-float-1 bg-gradient-to-r from-purple-500/45 to-blue-500/35" />
-          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 rounded-full blur-3xl animate-float-2 bg-gradient-to-r from-blue-400/40 to-purple-400/30" />
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 rounded-full blur-3xl animate-float-3 bg-gradient-to-r from-purple-600/35 to-indigo-700/45" />
-          <div className="absolute top-1/6 right-1/6 w-56 h-56 rounded-full blur-3xl animate-float-4 bg-gradient-to-r from-purple-500/30 to-cyan-500/25" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse-slow bg-gradient-to-r from-cyan-500/35 to-indigo-600/40" />
+          <div className="absolute top-3/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-float-1 bg-gradient-to-r from-indigo-500/45 to-blue-500/35" />
+          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 rounded-full blur-3xl animate-float-2 bg-gradient-to-r from-blue-400/40 to-indigo-400/30" />
+          <div className="absolute top-1/2 right-1/3 w-64 h-64 rounded-full blur-3xl animate-float-3 bg-gradient-to-r from-indigo-600/35 to-indigo-700/45" />
+          <div className="absolute top-1/6 right-1/6 w-56 h-56 rounded-full blur-3xl animate-float-4 bg-gradient-to-r from-indigo-500/30 to-cyan-500/25" />
         </div>
 
         {/* Static Bright Neon Lines - Inspired by reference image */}
@@ -98,7 +98,7 @@ export default function Component() {
               className="absolute top-0 left-0 w-full h-2 rounded-full"
               style={{
                 background:
-                  "linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.8) 20%, rgba(168, 85, 247, 0.9) 50%, rgba(6, 182, 212, 0.8) 80%, transparent 100%)",
+                  "linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.8) 20%, rgba(99, 102, 241, 0.9) 50%, rgba(6, 182, 212, 0.8) 80%, transparent 100%)",
                 boxShadow: "0 0 20px rgba(6, 182, 212, 0.6), 0 0 40px rgba(6, 182, 212, 0.4)",
                 transform: "rotate(2deg)",
               }}
@@ -109,8 +109,8 @@ export default function Component() {
               className="absolute top-0 right-0 w-full h-2 rounded-full"
               style={{
                 background:
-                  "linear-gradient(270deg, transparent 0%, rgba(168, 85, 247, 0.8) 20%, rgba(236, 72, 153, 0.9) 50%, rgba(168, 85, 247, 0.8) 80%, transparent 100%)",
-                boxShadow: "0 0 20px rgba(168, 85, 247, 0.6), 0 0 40px rgba(168, 85, 247, 0.4)",
+                  "linear-gradient(270deg, transparent 0%, rgba(99, 102, 241, 0.8) 20%, rgba(236, 72, 153, 0.9) 50%, rgba(99, 102, 241, 0.8) 80%, transparent 100%)",
+                boxShadow: "0 0 20px rgba(99, 102, 241, 0.6), 0 0 40px rgba(99, 102, 241, 0.4)",
                 transform: "rotate(-1deg)",
               }}
             />
@@ -120,7 +120,7 @@ export default function Component() {
               className="absolute bottom-0 left-0 w-full h-2 rounded-full"
               style={{
                 background:
-                  "linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.8) 25%, rgba(6, 182, 212, 0.9) 50%, rgba(168, 85, 247, 0.8) 75%, transparent 100%)",
+                  "linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.8) 25%, rgba(6, 182, 212, 0.9) 50%, rgba(99, 102, 241, 0.8) 75%, transparent 100%)",
                 boxShadow: "0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.4)",
                 transform: "rotate(1deg)",
               }}
@@ -133,7 +133,7 @@ export default function Component() {
               className="w-full h-full rounded-full"
               style={{
                 background:
-                  "linear-gradient(90deg, rgba(6, 182, 212, 0.7) 0%, rgba(168, 85, 247, 0.9) 50%, transparent 100%)",
+                  "linear-gradient(90deg, rgba(6, 182, 212, 0.7) 0%, rgba(99, 102, 241, 0.9) 50%, transparent 100%)",
                 boxShadow: "0 0 15px rgba(6, 182, 212, 0.8)",
               }}
             />
@@ -143,8 +143,8 @@ export default function Component() {
               className="w-full h-full rounded-full"
               style={{
                 background:
-                  "linear-gradient(270deg, rgba(168, 85, 247, 0.7) 0%, rgba(236, 72, 153, 0.9) 50%, transparent 100%)",
-                boxShadow: "0 0 15px rgba(168, 85, 247, 0.8)",
+                  "linear-gradient(270deg, rgba(99, 102, 241, 0.7) 0%, rgba(236, 72, 153, 0.9) 50%, transparent 100%)",
+                boxShadow: "0 0 15px rgba(99, 102, 241, 0.8)",
               }}
             />
           </div>
@@ -155,7 +155,7 @@ export default function Component() {
               className="w-full h-full rounded-full"
               style={{
                 background:
-                  "linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.6) 50%, rgba(168, 85, 247, 0.7) 100%)",
+                  "linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.6) 50%, rgba(99, 102, 241, 0.7) 100%)",
                 boxShadow: "0 0 10px rgba(6, 182, 212, 0.5)",
               }}
             />
@@ -165,8 +165,8 @@ export default function Component() {
               className="w-full h-full rounded-full"
               style={{
                 background:
-                  "linear-gradient(270deg, transparent 0%, rgba(168, 85, 247, 0.6) 50%, rgba(236, 72, 153, 0.7) 100%)",
-                boxShadow: "0 0 10px rgba(168, 85, 247, 0.5)",
+                  "linear-gradient(270deg, transparent 0%, rgba(99, 102, 241, 0.6) 50%, rgba(236, 72, 153, 0.7) 100%)",
+                boxShadow: "0 0 10px rgba(99, 102, 241, 0.5)",
               }}
             />
           </div>
@@ -211,8 +211,8 @@ export default function Component() {
             backgroundImage: `
               linear-gradient(rgba(6, 182, 212, 0.4) 1px, transparent 1px),
               linear-gradient(90deg, rgba(6, 182, 212, 0.4) 1px, transparent 1px),
-              linear-gradient(rgba(168, 85, 247, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(168, 85, 247, 0.3) 1px, transparent 1px)
+              linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)
             `,
             backgroundSize: "40px 40px, 40px 40px, 80px 80px, 80px 80px",
             backgroundPosition: "0 0, 0 0, 20px 20px, 20px 20px",
@@ -223,7 +223,7 @@ export default function Component() {
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 25% 25%, rgba(6, 182, 212, 0.15) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.15) 0%, transparent 50%)",
+              "radial-gradient(circle at 25% 25%, rgba(6, 182, 212, 0.15) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.15) 0%, transparent 50%)",
           }}
         />
       </div>
@@ -235,107 +235,91 @@ export default function Component() {
 
       {/* Main Content Container */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-6 space-y-8 lg:space-y-0 lg:flex-row lg:flex-wrap lg:justify-center lg:items-center">
-
         {/* Central Name Display */}
-<div className="relative z-10 text-center">
-  {/* Glow Aura Behind */}
-  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-    <div className="w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl animate-pulse-slow" />
-  </div>
+        <div className="relative z-10 text-center">
+          {/* Glow Aura Behind */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <div className="w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl animate-pulse-slow" />
+          </div>
 
-  {/* Frosted Glass Card */}
-  <div className="relative z-10 backdrop-blur-lg bg-white/10 border border-white/20 rounded-xl px-8 py-6 shadow-2xl max-w-2xl mx-auto">
-    <h1
-      className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 animate-glow"
-      style={{
-        textShadow: `
+          {/* Frosted Glass Card */}
+          <div className="relative z-10 backdrop-blur-lg bg-white/10 border border-white/20 rounded-xl px-8 py-6 shadow-2xl max-w-2xl mx-auto">
+            <h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 animate-glow"
+              style={{
+                textShadow: `
           0 0 8px rgba(0,255,255,0.7),
           0 0 14px rgba(0,255,255,0.6),
           0 0 40px rgba(0,255,255,0.3)
         `,
-      }}
-    >
-      Jacob Mondora
-    </h1>
-    <p className="text-lg sm:text-xl font-bold text-white/90">
-      Computer Engineering @ Northwestern
-    </p>
-  </div>
+              }}
+            >
+              Jacob Mondora
+            </h1>
+            <p className="text-lg sm:text-xl font-bold text-white/90">Computer Engineering @ Northwestern</p>
+          </div>
 
-  {/* Social Icons Row */}
-  <div className="flex justify-center space-x-6 mt-10">
-    <a href="https://www.linkedin.com/in/jacob-mondora-b56289251/" target="_blank" rel="noreferrer">
-  <Button
-    size="lg"
-    variant="ghost"
-    className="w-14 h-14 rounded-full bg-white/10 hover:bg-cyan-500/20 border border-white/20 hover:border-cyan-400/50 transition-all duration-300"
-  >
-    <Linkedin className="w-6 h-6 text-white" />
-  </Button>
-</a>
-    <a href="https://github.com/jacobmondora" target="_blank" rel="noreferrer">
-  <Button
-    size="lg"
-    variant="ghost"
-    className="w-14 h-14 rounded-full bg-white/10 hover:bg-purple-500/20 border border-white/20 hover:border-purple-400/50 transition-all duration-300"
-  >
-    <Github className="w-6 h-6 text-white" />
-  </Button>
-</a>
+          {/* Social Icons Row */}
+          <div className="flex justify-center space-x-6 mt-10">
+            <a href="https://www.linkedin.com/in/jacob-mondora-b56289251/" target="_blank" rel="noreferrer">
+              <Button
+                size="lg"
+                variant="ghost"
+                className="w-14 h-14 rounded-full bg-white/10 hover:bg-cyan-500/20 border border-white/20 hover:border-cyan-400/50 transition-all duration-300"
+              >
+                <Linkedin className="w-6 h-6 text-white" />
+              </Button>
+            </a>
+            <a href="https://github.com/jacobmondora" target="_blank" rel="noreferrer">
+              <Button
+                size="lg"
+                variant="ghost"
+                className="w-14 h-14 rounded-full bg-white/10 hover:bg-purple-500/20 border border-white/20 hover:border-purple-400/50 transition-all duration-300"
+              >
+                <Github className="w-6 h-6 text-white" />
+              </Button>
+            </a>
 
-    <a href="https://soundcloud.com/user-37673422" target="_blank" rel="noreferrer">
-  <Button
-    size="lg"
-    variant="ghost"
-    className="w-14 h-14 rounded-full bg-white/10 hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all duration-300"
-  >
-    <Music className="w-6 h-6 text-white" />
-  </Button>
-</a>
-  </div>
-</div>
+            <a href="https://soundcloud.com/user-37673422" target="_blank" rel="noreferrer">
+              <Button
+                size="lg"
+                variant="ghost"
+                className="w-14 h-14 rounded-full bg-white/10 hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all duration-300"
+              >
+                <Music className="w-6 h-6 text-white" />
+              </Button>
+            </a>
+          </div>
+        </div>
 
         {/* Floating Cards - Positioned Around the Screen */}
 
         {/* Top Left - Resume */}
-<FloatingCard
-  className="w-full max-w-xs lg:absolute lg:top-20 lg:left-20"
-  delay={200}
-  href="/Jacob_Mondora_Resume_2024.pdf"
->
-  <div className="text-center">
-    <FileText className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
-    <h3 className="font-semibold mb-2 text-white">Resume</h3>
-    <p className="text-sm text-white/70">Download my latest CV</p>
-    <Button size="sm" variant="ghost" className="mt-3 text-cyan-400 hover:text-cyan-300">
-      <Download className="w-4 h-4 mr-2" />
-      Download
-    </Button>
-  </div>
-</FloatingCard>
+        <FloatingCard
+          className="w-full max-w-xs lg:absolute lg:top-20 lg:left-20"
+          delay={200}
+          href="/Jacob_Mondora_Resume_2024.pdf"
+        >
+          <div className="text-center">
+            <FileText className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
+            <h3 className="font-semibold mb-2 text-white">Resume</h3>
+            <Button size="sm" variant="ghost" className="mt-3 text-cyan-400 hover:text-cyan-300">
+              <Download className="w-4 h-4 mr-2" />
+              Download
+            </Button>
+          </div>
+        </FloatingCard>
 
         {/* Top Right - Fitness */}
-        <FloatingCard className="w-full max-w-xs lg:absolute lg:top-20 lg:right-16" delay={400}>
+        <FloatingCard className="w-full max-w-xs lg:absolute lg:top-20 lg:right-16" delay={400} href="/travel">
           <div className="text-center">
-            <Dumbbell className="w-8 h-8 mx-auto mb-3 text-green-400" />
-            <h3 className="font-semibold mb-2 text-white">Fitness Journey</h3>
-            <div className="mt-3 text-sm text-green-400">View Workouts →</div>
+            <Camera className="w-8 h-8 mx-auto mb-3 text-green-400" />
+            <h3 className="font-semibold mb-2 text-white">Travels & Photography</h3>
+            <div className="mt-3 text-sm text-green-400">Click Here →</div>
           </div>
         </FloatingCard>
 
         {/* Left Side - Music Production */}
-        <FloatingCard
-          className="w-full max-w-xs lg:absolute lg:left-8 lg:top-1/2 lg:-translate-y-1/2"
-
-          delay={600}
-          href="https://soundcloud.com/user-37673422"
-        >
-          <div className="text-center">
-            <Music className="w-8 h-8 mx-auto mb-3 text-purple-400" />
-            <h3 className="font-semibold mb-2 text-white">Music Production</h3>
-            <div className="mt-3 text-sm text-purple-400">Listen on SoundCloud →</div>
-          </div>
-        </FloatingCard>
 
         {/* Bottom Left - Contact */}
         <FloatingCard
@@ -353,10 +337,9 @@ export default function Component() {
         {/* Bottom Right - About */}
         <FloatingCard className="w-full max-w-xs lg:absolute lg:bottom-20 lg:right-20" delay={1000}>
           <div className="text-center">
-            <div className="w-8 h-8 rounded-full mx-auto mb-3 bg-gradient-to-r from-cyan-400 to-purple-500"></div>
-            <h3 className="font-semibold mb-2 text-white">About Me</h3>
-            <p className="text-sm text-white/70">My story, passions & journey</p>
-            <div className="mt-3 text-sm text-cyan-400">Learn More →</div>
+            <Code className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
+            <h3 className="font-semibold mb-2 text-white">Personal Projects</h3>
+            <div className="mt-3 text-sm text-cyan-400">See Projects →</div>
           </div>
         </FloatingCard>
 
@@ -367,7 +350,7 @@ export default function Component() {
               <FileText className="w-5 h-5 text-cyan-400" />
             </Button>
             <Button size="sm" variant="ghost" className="rounded-full">
-              <Dumbbell className="w-5 h-5 text-green-400" />
+              <Camera className="w-5 h-5 text-green-400" />
             </Button>
             <Button size="sm" variant="ghost" className="rounded-full">
               <Music className="w-5 h-5 text-purple-400" />
@@ -476,7 +459,7 @@ export default function Component() {
           text-shadow: 0 0 8px rgba(0,255,255,0.7), 0 0 14px rgba(0,255,255,0.6), 0 0 40px rgba(0,255,255,0.3);
           }
           50% {
-            text-shadow: 0 0 12px rgba(168,85,247,0.8), 0 0 20px rgba(168,85,247,0.6), 0 0 60px rgba(168,85,247,0.4);
+            text-shadow: 0 0 12px rgba(99,102,241,0.8), 0 0 20px rgba(99,102,241,0.6), 0 0 60px rgba(99,102,241,0.4);
           }
 }
 
