@@ -226,19 +226,13 @@ export default function ProjectsPage() {
               >
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-sky-400/20 border border-blue-400/30">
-                        <div className="text-blue-300">{project.icon}</div>
-                      </div>
-                      <div>
-                        <CardTitle className="text-white text-xl font-bold">{project.title}</CardTitle>
-                        <Badge
-                          variant="secondary"
-                          className="mt-2 bg-gradient-to-r from-blue-500/20 to-sky-400/20 text-blue-200 border-blue-400/30"
-                        >
-                        </Badge>
-                      </div>
-                    </div>
+                    <div>
+                      <CardTitle className="text-white text-xl font-bold">{project.title}</CardTitle>
+                      <Badge
+                        variant="secondary"
+                        className="mt-2 bg-gradient-to-r from-blue-500/20 to-sky-400/20 text-blue-200 border-blue-400/30"
+                      />
+                  </div>
                     <div className="flex gap-3">
                       {project.githubUrl && (
                         <Button
@@ -248,7 +242,7 @@ export default function ProjectsPage() {
                           asChild
                         >
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-4 h-4" />
+                            <Github className="w-6 h-6" />
                           </a>
                         </Button>
                       )}
