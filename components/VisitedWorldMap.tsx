@@ -22,6 +22,7 @@ const visitedCountries = [
   "Monaco",
   "Poland",
   "Belgium",
+  "Iceland"
 ]
 
 export default function VisitedWorldMap() {

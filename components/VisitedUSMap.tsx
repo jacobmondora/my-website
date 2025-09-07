@@ -64,6 +64,11 @@ const visitedStates = [
   "New Jersey",
   "New York",
   "Massachusetts",
+  "Vermont",
+  "New Hampshire",
+  "Connecticut",
+  "Rhode Island",
+  "Maine"
 ]
 
 export default function VisitedUSMap() {

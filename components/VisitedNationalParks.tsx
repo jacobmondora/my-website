@@ -100,6 +100,11 @@ const visitedNationalParks = [
     latitude: 42.9295,
     longitude: -122.1279,
   },
+  {
+    name: "Acadia",
+    latitude: 44.3386,
+    longitude: -68.2733,
+  },
 ]
 
 export default function VisitedNationalParks() {
