@@ -21,8 +21,14 @@ const visitedCountries = [
   "Monaco",
   "Poland",
   "Belgium",
-  "Iceland"
+  "Iceland",
 ]
+
+// Minimal safe type for react-simple-maps geography data
+type GeoType = {
+  rsmKey: string
+  properties: { name: string }
+}
 
 export default function VisitedWorldMap() {
   const [tooltipContent, setTooltipContent] = useState("")
@@ -30,13 +36,13 @@ export default function VisitedWorldMap() {
   const fixedCenter: [number, number] = [0, 20]
 
   return (
-   <Card className="relative bg-gradient-to-br from-sky-700 to-sky-200 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
-
+    <Card className="relative bg-gradient-to-br from-sky-700 to-sky-200 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
           Countries ({visitedCountries.length})
         </CardTitle>
       </CardHeader>
+
       <CardContent>
         {tooltipContent && (
           <div className="absolute top-25 left-1/2 -translate-x-1/2 -translate-y-full z-20 bg-black/80 text-white text-sm px-4 py-1 rounded-md shadow pointer-events-none">
@@ -50,7 +56,6 @@ export default function VisitedWorldMap() {
               zoom={fixedZoom}
               center={fixedCenter}
               onMoveEnd={({ coordinates }: { coordinates: [number, number] }) => {
-                // if zoom changed, allow it; if panned, reset center
                 if (
                   coordinates[0] !== fixedCenter[0] ||
                   coordinates[1] !== fixedCenter[1]
@@ -67,29 +72,28 @@ export default function VisitedWorldMap() {
               }}
             >
               <Geographies geography={geoUrl}>
-                {({ geographies }: any) =>
-  geographies.map((geo: any) => {
-    const name = geo.properties.name as string
-    const isVisited = visitedCountries.includes(name)
+                {({ geographies }: { geographies: GeoType[] }) =>
+                  geographies.map((geo) => {
+                    const name = geo.properties.name
+                    const isVisited = visitedCountries.includes(name)
 
-    return (
-      <Geography
-        key={geo.rsmKey}
-        geography={geo}
-        fill={isVisited ? "#93c5fd" : "#334155"}
-        stroke={isVisited ? "#d1f0faff" : "#cbd5e1"}
-        onMouseEnter={() => setTooltipContent(name)}
-        onMouseLeave={() => setTooltipContent("")}
-        style={{
-          default: { outline: "none" },
-          hover: { fill: "#0ea5e9", outline: "none" },
-          pressed: { fill: "#0284c7", outline: "none" },
-        }}
-      />
-    )
-  })
-}
-
+                    return (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        fill={isVisited ? "#93c5fd" : "#334155"}
+                        stroke={isVisited ? "#d1f0faff" : "#cbd5e1"}
+                        onMouseEnter={() => setTooltipContent(name)}
+                        onMouseLeave={() => setTooltipContent("")}
+                        style={{
+                          default: { outline: "none" },
+                          hover: { fill: "#0ea5e9", outline: "none" },
+                          pressed: { fill: "#0284c7", outline: "none" },
+                        }}
+                      />
+                    )
+                  })
+                }
               </Geographies>
             </ZoomableGroup>
           </ComposableMap>
