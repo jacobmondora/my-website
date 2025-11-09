@@ -1,11 +1,9 @@
 "use client"
 
-import type * as React from "react"
 import { useState, useEffect } from "react"
 import { Github, Linkedin, Music, FileText, Mail, Camera } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 
 
 
