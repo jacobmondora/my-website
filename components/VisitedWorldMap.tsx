@@ -67,29 +67,29 @@ export default function VisitedWorldMap() {
               }}
             >
               <Geographies geography={geoUrl}>
-                {({ geographies }: { geographies: import("react-simple-maps").GeoFeature[] }) =>
-                  geographies.map((geo) => {
-                    const isVisited = visitedCountries.includes(
-                      geo.properties.name
-                    )
-                    return (
-                    <Geography
-  key={geo.rsmKey}
-  geography={geo}
-  fill={isVisited ? "#93c5fd" : "#334155"} // same fills you love
-  stroke={isVisited ? "#d1f0faff" : "#cbd5e1"} // gray border for visited, light border for unvisited
-  onMouseEnter={() => setTooltipContent(name)}
-  onMouseLeave={() => setTooltipContent("")}
-  style={{
-    default: { outline: "none" },
-    hover: { fill: "#0ea5e9", outline: "none" },
-    pressed: { fill: "#0284c7", outline: "none" },
-  }}
-/>
+                {({ geographies }: any) =>
+  geographies.map((geo: any) => {
+    const name = geo.properties.name as string
+    const isVisited = visitedCountries.includes(name)
 
-                  )
-                  })
-                }
+    return (
+      <Geography
+        key={geo.rsmKey}
+        geography={geo}
+        fill={isVisited ? "#93c5fd" : "#334155"}
+        stroke={isVisited ? "#d1f0faff" : "#cbd5e1"}
+        onMouseEnter={() => setTooltipContent(name)}
+        onMouseLeave={() => setTooltipContent("")}
+        style={{
+          default: { outline: "none" },
+          hover: { fill: "#0ea5e9", outline: "none" },
+          pressed: { fill: "#0284c7", outline: "none" },
+        }}
+      />
+    )
+  })
+}
+
               </Geographies>
             </ZoomableGroup>
           </ComposableMap>
