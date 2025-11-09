@@ -6,7 +6,6 @@ import {
   Geography,
 } from "react-simple-maps"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Flag } from "lucide-react"
 import { useState } from "react"
 
 
@@ -39,10 +38,10 @@ export default function VisitedCanadaMap() {
 
 
   return (
-    <Card className="relative bg-gradient-to-br from-red-900/30 to-orange-900/20 border-red-400/40 backdrop-blur-md">
+    <Card className="relative bg-gradient-to-br from-sky-700 to-sky-200 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
+
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
-          <Flag className="w-6 h-6 text-red-400" />
           Canada ({visitedProvinces.length}/13)
         </CardTitle>
       </CardHeader>
@@ -53,7 +52,7 @@ export default function VisitedCanadaMap() {
           </div>
         )}
 
-        <div className="aspect-[4/3] bg-white/5 rounded-lg border border-red-400/20 p-4">
+        <div className="aspect-[4/3] bg-white/5 rounded-lg border border-blue-400/20 p-4">
           <ComposableMap projection="geoMercator"
   projectionConfig={{
     scale: 280,
@@ -67,20 +66,21 @@ export default function VisitedCanadaMap() {
                     const name = geo.properties.name
                     const isVisited = visitedProvinces.includes(name)
                     return (
-                      <Geography
-                        key={geo.rsmKey}
-                        geography={geo}
-                        fill={isVisited ? "#F87171" : "#334155"}
-                        stroke="#fca5a5"
-                        onMouseEnter={() => setTooltipContent(name)}
-                        onMouseLeave={() => setTooltipContent("")}
-                        style={{
-                          default: { outline: "none" },
-                          hover: { fill: "#fb923c", outline: "none" },
-                          pressed: { fill: "#f97316", outline: "none" },
-                        }}
-                      />
-                    )
+                    <Geography
+  key={geo.rsmKey}
+  geography={geo}
+  fill={isVisited ? "#93c5fd" : "#334155"} // same fills you love
+  stroke={isVisited ? "#d1f0faff" : "#cbd5e1"} // gray border for visited, light border for unvisited
+  onMouseEnter={() => setTooltipContent(name)}
+  onMouseLeave={() => setTooltipContent("")}
+  style={{
+    default: { outline: "none" },
+    hover: { fill: "#0ea5e9", outline: "none" },
+    pressed: { fill: "#0284c7", outline: "none" },
+  }}
+/>
+
+                  )
                   })
                 }
               </Geographies>

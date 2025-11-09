@@ -6,7 +6,6 @@ import {
   Geography,
 } from "react-simple-maps"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Flag } from "lucide-react"
 import { useState } from "react"
 
 type GeoFeature = {
@@ -75,10 +74,10 @@ export default function VisitedUSMap() {
   const [tooltipContent, setTooltipContent] = useState("")
 
   return (
-    <Card className="relative bg-gradient-to-br from-sky-900/30 to-blue-900/20 border-blue-400/40 backdrop-blur-md">
+    <Card className="relative bg-gradient-to-br from-sky-700 to-sky-200 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
+
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
-          <Flag className="w-6 h-6 text-sky-400" />
           USA ({visitedStates.length}/50)
         </CardTitle>
       </CardHeader>
@@ -98,18 +97,19 @@ export default function VisitedUSMap() {
                   const isVisited = visitedStates.includes(name)
                   return (
                     <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill={isVisited ? "#38bdf8" : "#334155"}
-                      stroke="#93c5fd"
-                      onMouseEnter={() => setTooltipContent(name)}
-                      onMouseLeave={() => setTooltipContent("")}
-                      style={{
-                        default: { outline: "none" },
-                        hover: { fill: "#0ea5e9", outline: "none" },
-                        pressed: { fill: "#0284c7", outline: "none" },
-                      }}
-                    />
+  key={geo.rsmKey}
+  geography={geo}
+  fill={isVisited ? "#93c5fd" : "#334155"} // same fills you love
+  stroke={isVisited ? "#d1f0faff" : "#cbd5e1"} // gray border for visited, light border for unvisited
+  onMouseEnter={() => setTooltipContent(name)}
+  onMouseLeave={() => setTooltipContent("")}
+  style={{
+    default: { outline: "none" },
+    hover: { fill: "#0ea5e9", outline: "none" },
+    pressed: { fill: "#0284c7", outline: "none" },
+  }}
+/>
+
                   )
                 })
               }

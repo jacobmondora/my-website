@@ -2,7 +2,7 @@
 
 import type * as React from "react"
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Music, FileText, Mail, Download, Code, Camera } from "lucide-react"
+import { Github, Linkedin, Music, FileText, Mail, Download, Camera } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -54,41 +54,44 @@ const FloatingCard = ({
 }
 
 export default function Component() {
-  const [currentTime, setCurrentTime] = useState("")
+  const [currentDateTime, setCurrentDateTime] = useState("")
 
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date()
-      setCurrentTime(
-        now.toLocaleTimeString("en-US", {
-          hour12: true,
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        }),
-      )
-    }
+useEffect(() => {
+  const updateDateTime = () => {
+    const now = new Date();
 
-    updateTime()
-    const interval = setInterval(updateTime, 1000)
-    return () => clearInterval(interval)
-  }, [])
+    const time = now.toLocaleTimeString("en-US", {
+      hour12: true,
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
+
+    // Numeric date format: MM-DD-YYYY
+    const date = now.toLocaleDateString("en-US", {
+      month: "2-digit",
+      day: "2-digit",
+      year: "numeric",
+    });
+
+    // Time first, then date
+    setCurrentDateTime(`${date} ${time}`);
+  };
+
+  updateDateTime();
+  const interval = setInterval(updateDateTime, 1000);
+  return () => clearInterval(interval);
+}, []);
+
+
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-slate-900">
       {/* Animated CSS Background */}
       <div className="absolute inset-0">
         {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-indigo-600 to-cyan-300" />
 
-        {/* Flowing orbs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse-slow bg-gradient-to-r from-cyan-500/35 to-indigo-600/40" />
-          <div className="absolute top-3/4 right-1/4 w-80 h-80 rounded-full blur-3xl animate-float-1 bg-gradient-to-r from-indigo-500/45 to-blue-500/35" />
-          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 rounded-full blur-3xl animate-float-2 bg-gradient-to-r from-blue-400/40 to-indigo-400/30" />
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 rounded-full blur-3xl animate-float-3 bg-gradient-to-r from-indigo-600/35 to-indigo-700/45" />
-          <div className="absolute top-1/6 right-1/6 w-56 h-56 rounded-full blur-3xl animate-float-4 bg-gradient-to-r from-indigo-500/30 to-cyan-500/25" />
-        </div>
 
         {/* Static Bright Neon Lines - Inspired by reference image */}
         <div className="absolute inset-0 overflow-hidden">
@@ -115,7 +118,7 @@ export default function Component() {
               }}
             />
           </div>
-          <div className="absolute bottom-1/3 left-0 w-full h-full">
+          <div className="absolute bottom-1/5 left-0 w-full h-full">
             <div
               className="absolute bottom-0 left-0 w-full h-2 rounded-full"
               style={{
@@ -143,98 +146,25 @@ export default function Component() {
               className="w-full h-full rounded-full"
               style={{
                 background:
-                  "linear-gradient(270deg, rgba(99, 102, 241, 0.7) 0%, rgba(236, 72, 153, 0.9) 50%, transparent 100%)",
+                  "linear-gradient(270deg, rgba(99, 102, 241, 0.7) 0%, rgba(116, 211, 255, 0.9) 50%, transparent 100%)",
                 boxShadow: "0 0 15px rgba(99, 102, 241, 0.8)",
               }}
             />
           </div>
-
-          {/* Additional curved elements */}
-          <div className="absolute top-2/3 left-1/6 w-64 h-1 transform rotate-45">
-            <div
-              className="w-full h-full rounded-full"
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.6) 50%, rgba(99, 102, 241, 0.7) 100%)",
-                boxShadow: "0 0 10px rgba(6, 182, 212, 0.5)",
-              }}
-            />
-          </div>
-          <div className="absolute top-1/8 right-1/3 w-48 h-1 transform -rotate-30">
-            <div
-              className="w-full h-full rounded-full"
-              style={{
-                background:
-                  "linear-gradient(270deg, transparent 0%, rgba(99, 102, 241, 0.6) 50%, rgba(236, 72, 153, 0.7) 100%)",
-                boxShadow: "0 0 10px rgba(99, 102, 241, 0.5)",
-              }}
-            />
-          </div>
         </div>
 
-        {/* Flowing lines */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-1/5 left-0 w-full h-px animate-flow-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
-            <div className="absolute top-2/5 left-0 w-full h-px animate-flow-2 bg-gradient-to-r from-transparent via-purple-400/45 to-transparent" />
-            <div className="absolute top-3/5 left-0 w-full h-px animate-flow-3 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
-            <div className="absolute top-4/5 left-0 w-full h-px animate-flow-4 bg-gradient-to-r from-transparent via-purple-300/35 to-transparent" />
-          </div>
-        </div>
 
-        {/* Geometric chevron patterns */}
-        {/* <div className="absolute inset-0 overflow-hidden opacity-30">
-          <div className="absolute top-1/6 right-1/4 w-32 h-32">
-            <div className="absolute inset-0 border-l-2 border-t-2 transform rotate-45 animate-pulse-slow border-purple-400/40" />
-            <div className="absolute inset-2 border-l-2 border-t-2 transform rotate-45 animate-float-1 border-cyan-400/30" />
-            <div className="absolute inset-4 border-l-2 border-t-2 transform rotate-45 animate-float-2 border-purple-300/20" />
-          </div>
-          <div className="absolute bottom-1/4 left-1/5 w-24 h-24">
-            <div className="absolute inset-0 border-r-2 border-b-2 transform -rotate-12 animate-float-3 border-cyan-400/40" />
-            <div className="absolute inset-2 border-r-2 border-b-2 transform -rotate-12 animate-twinkle-1 border-purple-400/30" />
-          </div>
-        </div> */}
-
-        {/* Neon flowing curves */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/3 left-1/6 w-64 h-2 rounded-full transform rotate-12 animate-flow-neon-1 bg-gradient-to-r from-purple-500/30 via-cyan-400/40 to-transparent" />
-          <div className="absolute bottom-1/2 right-1/4 w-48 h-1 rounded-full transform -rotate-6 animate-flow-neon-2 bg-gradient-to-l from-cyan-400/35 via-purple-500/25 to-transparent" />
-          <div className="absolute top-2/3 left-1/2 w-32 h-1 rounded-full transform rotate-45 animate-twinkle-3 bg-gradient-to-r from-purple-400/30 to-cyan-300/20" />
-        </div>
       </div>
 
-      {/* Enhanced Bright Grid Overlay */}
-      <div className="absolute inset-0 opacity-60">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(6, 182, 212, 0.4) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(6, 182, 212, 0.4) 1px, transparent 1px),
-              linear-gradient(rgba(99, 102, 241, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(99, 102, 241, 0.3) 1px, transparent 1px)
-            `,
-            backgroundSize: "40px 40px, 40px 40px, 80px 80px, 80px 80px",
-            backgroundPosition: "0 0, 0 0, 20px 20px, 20px 20px",
-          }}
-        />
-        {/* Grid glow effect */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 25% 25%, rgba(6, 182, 212, 0.15) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.15) 0%, transparent 50%)",
-          }}
-        />
-      </div>
+
 
       {/* Time Display - Top Left */}
       <div className="absolute top-6 left-6 z-10">
-        <div className="font-mono text-sm text-white/70">{currentTime}</div>
+        <div className="font-mono text-sm text-white/70">{currentDateTime}</div>
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-start p-6 space-y-8 lg:space-y-0 lg:flex-row lg:flex-wrap lg:justify-center lg:items-center">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-6 space-y-8 lg:space-y-0 lg:flex-row lg:flex-wrap lg:justify-center lg:items-center">
         {/* Central Name Display */}
         <div className="relative z-10 text-center">
           {/* Glow Aura Behind */}
@@ -245,121 +175,97 @@ export default function Component() {
           {/* Frosted Glass Card */}
           <div className="relative z-10 backdrop-blur-lg bg-white/10 border border-white/20 rounded-xl px-8 py-6 shadow-2xl max-w-2xl mx-auto">
             <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 animate-glow"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-white"
               style={{
                 textShadow: `
-          0 0 8px rgba(0,255,255,0.7),
-          0 0 14px rgba(0,255,255,0.6),
-          0 0 40px rgba(0,255,255,0.3)
         `,
               }}
             >
               Jacob Mondora
             </h1>
-            <p className="text-lg sm:text-xl font-bold text-white/90">Computer Engineering @ Northwestern</p>
+            <p className="text-lg sm:text-xl font-bold text-white/90">Computer Engineering | Northwestern University</p>
           </div>
 
-          {/* Social Icons Row */}
-          <div className="flex justify-center space-x-6 mt-10">
-            <a href="https://www.linkedin.com/in/jacob-mondora-b56289251/" target="_blank" rel="noreferrer">
-              <Button
-                size="lg"
-                variant="ghost"
-                className="w-14 h-14 rounded-full bg-white/10 hover:bg-cyan-500/20 border border-white/20 hover:border-cyan-400/50 transition-all duration-300"
-              >
-                <Linkedin className="w-6 h-6 text-white" />
-              </Button>
-            </a>
-            <a href="https://github.com/jacobmondora" target="_blank" rel="noreferrer">
-              <Button
-                size="lg"
-                variant="ghost"
-                className="w-14 h-14 rounded-full bg-white/10 hover:bg-purple-500/20 border border-white/20 hover:border-purple-400/50 transition-all duration-300"
-              >
-                <Github className="w-6 h-6 text-white" />
-              </Button>
-            </a>
 
-            <a href="https://soundcloud.com/user-37673422" target="_blank" rel="noreferrer">
-              <Button
-                size="lg"
-                variant="ghost"
-                className="w-14 h-14 rounded-full bg-white/10 hover:bg-orange-500/20 border border-white/20 hover:border-orange-400/50 transition-all duration-300"
-              >
-                <Music className="w-6 h-6 text-white" />
-              </Button>
-            </a>
-          </div>
-        </div>
-
-        {/* Floating Cards - Positioned Around the Screen */}
-
-        {/* Top Left - Resume */}
-        <FloatingCard
-          className="w-full max-w-xs lg:absolute lg:top-20 lg:left-20"
-          delay={200}
-          href="/Jacob_Mondora_Resume_2024.pdf"
+          
+{/* Icons Container */}
+<div className="flex flex-col items-center mt-10 space-y-10">
+  <div className="w-full max-w-2xl">
+    {/* Top row */}
+    <div className="flex justify-evenly px-8">
+      <a href="https://www.linkedin.com/in/jacob-mondora-b56289251/" target="_blank" rel="noreferrer">
+        <Button
+          size="lg"
+          variant="ghost"
+          className="w-28 h-28 rounded-3xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300"
         >
-          <div className="text-center">
-            <FileText className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
-            <h3 className="font-semibold mb-2 text-white">Resume</h3>
-            <Button size="sm" variant="ghost" className="mt-3 text-cyan-400 hover:text-cyan-300">
-              <Download className="w-4 h-4 mr-2" />
-              Download
-            </Button>
-          </div>
-        </FloatingCard>
+          <Linkedin className="w-12 h-12 text-white" />
+        </Button>
+      </a>
 
-        {/* Top Right - Fitness */}
-        <FloatingCard className="w-full max-w-xs lg:absolute lg:top-20 lg:right-16" delay={400} href="/travel">
-          <div className="text-center">
-            <Camera className="w-8 h-8 mx-auto mb-3 text-green-400" />
-            <h3 className="font-semibold mb-2 text-white">Travels & Photography</h3>
-            <div className="mt-3 text-sm text-green-400">Click Here →</div>
-          </div>
-        </FloatingCard>
-
-        {/* Left Side - Music Production */}
-
-        {/* Bottom Left - Contact */}
-        <FloatingCard
-          className="w-full max-w-xs lg:absolute lg:bottom-24 lg:left-24"
-          delay={800}
-          onClick={() => (window.location.href = "mailto:jacobmondora@gmail.com")}
+      <a href="https://github.com/jacobmondora" target="_blank" rel="noreferrer">
+        <Button
+          size="lg"
+          variant="ghost"
+          className="w-28 h-28 rounded-3xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300"
         >
-          <div className="text-center">
-            <Mail className="w-8 h-8 mx-auto mb-3 text-pink-400" />
-            <h3 className="font-semibold mb-2 text-white">Get in Touch</h3>
-            <div className="mt-3 text-sm text-pink-400">Send Email →</div>
-          </div>
-        </FloatingCard>
+          <Github className="w-12 h-12 text-white" />
+        </Button>
+      </a>
 
-        {/* Bottom Right - About */}
-        <FloatingCard className="w-full max-w-xs lg:absolute lg:bottom-20 lg:right-20" delay={1000} href="/projects">
-          <div className="text-center">
-            <Code className="w-8 h-8 mx-auto mb-3 text-cyan-400" />
-            <h3 className="font-semibold mb-2 text-white">Personal Projects</h3>
-            <div className="mt-3 text-sm text-cyan-400">See Projects →</div>
-          </div>
-        </FloatingCard>
+      <a href="https://soundcloud.com/user-37673422" target="_blank" rel="noreferrer">
+        <Button
+          size="lg"
+          variant="ghost"
+          className="w-28 h-28 rounded-3xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300"
+        >
+          <Music className="w-12 h-12 text-white" />
+        </Button>
+      </a>
+    </div>
 
-        {/* Mobile-only bottom navigation */}
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 lg:hidden">
-          <div className="flex space-x-4 backdrop-blur-md rounded-full p-3 bg-white/10 border border-white/20">
-            <Button size="sm" variant="ghost" className="rounded-full">
-              <FileText className="w-5 h-5 text-cyan-400" />
-            </Button>
-            <Button size="sm" variant="ghost" className="rounded-full">
-              <Camera className="w-5 h-5 text-green-400" />
-            </Button>
-            <Button size="sm" variant="ghost" className="rounded-full">
-              <Music className="w-5 h-5 text-purple-400" />
-            </Button>
-            <Button size="sm" variant="ghost" className="rounded-full">
-              <Mail className="w-5 h-5 text-pink-400" />
-            </Button>
-          </div>
-        </div>
+    {/* Bottom row */}
+    <div className="flex justify-evenly px-8 mt-10">
+      <a href="/Jacob_Mondora_Resume.pdf" target="_blank" rel="noreferrer">
+        <Button
+          size="lg"
+          variant="ghost"
+          className="w-28 h-28 rounded-3xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300"
+        >
+          <FileText className="w-12 h-12 text-white" />
+        </Button>
+      </a>
+
+      <a href="/travel" target="_blank" rel="noreferrer">
+        <Button
+          size="lg"
+          variant="ghost"
+          className="w-28 h-28 rounded-3xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300"
+        >
+          <Camera className="w-12 h-12 text-white" />
+        </Button>
+      </a>
+
+      <Button
+        size="lg"
+        variant="ghost"
+        onClick={() => (window.location.href = "mailto:jacobmondora@gmail.com")}
+        className="w-28 h-28 rounded-3xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all duration-300"
+      >
+        <Mail className="w-12 h-12 text-white" />
+      </Button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+ </div>
+
+
+
       </div>
 
       <style jsx>{`
@@ -459,7 +365,7 @@ export default function Component() {
           text-shadow: 0 0 8px rgba(0,255,255,0.7), 0 0 14px rgba(0,255,255,0.6), 0 0 40px rgba(0,255,255,0.3);
           }
           50% {
-            text-shadow: 0 0 12px rgba(99,102,241,0.8), 0 0 20px rgba(99,102,241,0.6), 0 0 60px rgba(99,102,241,0.4);
+            text-shadow: 0 0 12px rgba(99,102,241,0.8), 0 0 20px rgba(56, 132, 245, 0.6), 0 0 60px rgba(99,102,241,0.4);
           }
 }
 

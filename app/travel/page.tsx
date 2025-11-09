@@ -1,6 +1,5 @@
 "use client"
 
-import { MapPin } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import dynamic from "next/dynamic"
 
@@ -14,37 +13,43 @@ export default function TravelPage() {
   const samplePhotos = [
     {
       id: "1",
-      url: "/IMG_7121.jpg?height=300&width=300",
-      location: "Warsaw, Poland",
+      url: "/IMG_8792.jpg?height=300&width=300",
+      location: "Skógafoss, Iceland",
     },
     {
       id: "2",
-      url: "/IMG_7083.jpg?height=300&width=300",
-      location: "Crater Lake National Park, Oregon, United States",
-    },
-    {
-      id: "3",
       url: "/IMG_3037.jpg?height=300&width=300",
       location: "Tenerife, Canary Islands, Spain",
     },
     {
+      id: "3",
+      url: "/IMG_7083.jpg?height=300&width=300",
+      location: "Crater Lake, Oregon, United States",
+    },
+    {
       id: "4",
-      url: "/IMG_7122.jpg?height=300&width=300",
-      location: "Toronto, Ontario, Canada",
+      url: "/IMG_7121.jpg?height=300&width=300",
+      location: "Warsaw, Poland",
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-orange-900 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-sky-900 to-blue-800 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-emerald-900/60 to-orange-900/70" />
-        <div className="absolute top-1/6 left-1/5 w-80 h-80 rounded-full blur-3xl bg-gradient-to-r from-orange-500/15 to-amber-600/20" />
-        <div className="absolute bottom-1/3 right-1/6 w-96 h-96 rounded-full blur-3xl bg-gradient-to-r from-emerald-500/10 to-teal-600/15" />
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/80 via-sky-900/60 to-blue-800/70" />
+        <div className="absolute top-1/6 left-1/5 w-80 h-80 rounded-full blur-3xl bg-gradient-to-r from-cyan-400/15 to-sky-500/20" />
+        <div className="absolute bottom-1/3 right-1/6 w-96 h-96 rounded-full blur-3xl bg-gradient-to-r from-sky-400/10 to-blue-400/15" />
         <div className="absolute bottom-0 left-0 w-full h-32 opacity-20">
           <svg viewBox="0 0 1200 200" className="w-full h-full">
-            <polygon points="0,200 200,50 400,120 600,30 800,90 1000,60 1200,100 1200,200" fill="rgba(16, 185, 129, 0.3)" />
-            <polygon points="0,200 150,80 350,140 550,60 750,110 950,80 1200,120 1200,200" fill="rgba(251, 146, 60, 0.2)" />
+            <polygon
+              points="0,200 200,50 400,120 600,30 800,90 1000,60 1200,100 1200,200"
+              fill="rgba(56,189,248,0.25)"
+            />
+            <polygon
+              points="0,200 150,80 350,140 550,60 750,110 950,80 1200,120 1200,200"
+              fill="rgba(59,130,246,0.2)"
+            />
           </svg>
         </div>
       </div>
@@ -63,10 +68,9 @@ export default function TravelPage() {
         </div>
 
         {/* Photo Gallery */}
-        <Card className="mb-12 bg-gradient-to-r from-slate-900/40 to-emerald-900/20 border-cyan-400/30 backdrop-blur-md">
+        <Card className="mb-12 bg-gradient-to-br from-cyan-800 to-sky-800 border-cyan-400/30 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
           <CardHeader>
             <CardTitle className="text-white flex items-center gap-2 -mt-5">
-              <MapPin className="w-6 h-6 text-cyan-400" />
               Recent Travels
             </CardTitle>
           </CardHeader>
@@ -74,7 +78,7 @@ export default function TravelPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {samplePhotos.map((photo) => (
                 <div key={photo.id} className="group">
-                  <div className="aspect-square rounded-lg overflow-hidden bg-white/5 border border-orange-400/20 mb-3">
+                  <div className="aspect-square rounded-lg overflow-hidden bg-white/5 border border-cyan-400/20 mb-3">
                     <img
                       src={photo.url || "/placeholder.svg"}
                       alt={photo.location}

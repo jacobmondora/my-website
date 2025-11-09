@@ -7,7 +7,6 @@ import {
   Marker,
 } from "react-simple-maps"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { TreePine } from "lucide-react"
 import { useState } from "react"
 
 type GeoFeature = {
@@ -111,10 +110,11 @@ export default function VisitedNationalParks() {
   const [tooltipContent, setTooltipContent] = useState("")
 
   return (
-    <Card className="relative bg-gradient-to-br from-green-900/30 to-emerald-900/20 border-green-400/40 backdrop-blur-md">
+<Card className="relative bg-gradient-to-br from-sky-700 to-sky-200 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
+  
+
       <CardHeader>
         <CardTitle className="text-white flex items-center gap-2">
-          <TreePine className="w-6 h-6 text-green-400" />
           US National Parks ({visitedNationalParks.length}/63)
         </CardTitle>
       </CardHeader>
@@ -125,24 +125,24 @@ export default function VisitedNationalParks() {
           </div>
         )}
 
-        <div className="aspect-[4/3] bg-white/5 rounded-lg border border-green-400/20 p-4">
+        <div className="aspect-[4/3] bg-white/5 rounded-lg border border-blue-400/20 p-4">
           <ComposableMap projection="geoAlbersUsa" projectionConfig={{ scale: 1000 }}>
             <Geographies geography="https://raw.githubusercontent.com/codeforgermany/click_that_hood/master/public/data/united-states.geojson">
               {({ geographies }: { geographies: GeoFeature[] }) =>
-                geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill="#334155"
-                    stroke="#94a3b8"
-                    style={{
-                      default: { outline: "none" },
-                      hover: { fill: "#4ade80", outline: "none" },
-                      pressed: { fill: "#22c55e", outline: "none" },
-                    }}
-                  />
-                ))
-              }
+  geographies.map((geo) => (
+    <Geography
+      key={geo.rsmKey}
+      geography={geo}
+      fill="#334155" // dark slate background, same base
+      stroke="#d1f0faff" // soft white border to match other maps
+      style={{
+        default: { outline: "none" },
+        hover: { fill: "#0ea5e9", outline: "none" }, // blue hover consistency
+        pressed: { fill: "#0284c7", outline: "none" },
+      }}
+    />
+  ))
+}
             </Geographies>
             {visitedNationalParks.map((park) => (
               <Marker
@@ -151,7 +151,7 @@ export default function VisitedNationalParks() {
                 onMouseEnter={() => setTooltipContent(park.name)}
                 onMouseLeave={() => setTooltipContent("")}
               >
-                <circle r={4} fill="#4ade80" stroke="#166534" strokeWidth={1.5} />
+                <circle r={4} fill="#93c5fd" stroke="#d1f0faff" strokeWidth={1.5} />
               </Marker>
             ))}
           </ComposableMap>
