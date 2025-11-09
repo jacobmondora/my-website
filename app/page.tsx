@@ -2,56 +2,12 @@
 
 import type * as React from "react"
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Music, FileText, Mail, Download, Camera } from "lucide-react"
+import { Github, Linkedin, Music, FileText, Mail, Camera } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
-const FloatingCard = ({
-  children,
-  className = "",
-  delay = 0,
-  href,
-  onClick,
-}: {
-  children: React.ReactNode
-  className?: string
-  delay?: number
-  href?: string
-  onClick?: () => void
-}) => {
-  const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), delay)
-    return () => clearTimeout(timer)
-  }, [delay])
-
-  const cardContent = (
-    <Card
-      className={`
-        floating-card cursor-pointer transition-all duration-500 hover:scale-110 hover:shadow-2xl
-        bg-white/10 border-white/20 hover:border-cyan-400/50
-        backdrop-blur-md
-        ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-        ${className}
-      `}
-      onClick={onClick}
-    >
-      <CardContent className="p-4">{children}</CardContent>
-    </Card>
-  )
-
-  if (href) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="block">
-        {cardContent}
-      </a>
-    )
-  }
-
-  return cardContent
-}
 
 export default function Component() {
   const [currentDateTime, setCurrentDateTime] = useState("")
