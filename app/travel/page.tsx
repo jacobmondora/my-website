@@ -68,7 +68,7 @@ export default function TravelPage() {
         </div>
 
         {/* Photo Gallery */}
-        <Card className="mb-12 bg-gradient-to-br from-cyan-800 to-sky-800 border-cyan-400/30 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
+        <Card className="mb-12 bg-gradient-to-br from-sky-700 to-sky-700 border-cyan-700/30 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
           <CardHeader>
             <CardTitle className="text-white flex items-center gap-2 -mt-5">
               Recent Travels

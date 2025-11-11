@@ -95,7 +95,7 @@ useEffect(() => {
               }}
             />
           </div>
-          <div className="absolute bottom-1/6 right-1/4 w-80 h-2 transform -rotate-12">
+          <div className="absolute bottom-1/8 right-3/10 w-80 h-2 transform -rotate-12">
             <div
               className="w-full h-full rounded-full"
               style={{
@@ -212,13 +212,7 @@ useEffect(() => {
   </div>
 </div>
 
-
-
-
-
  </div>
-
-
 
       </div>
 

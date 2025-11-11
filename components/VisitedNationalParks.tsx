@@ -110,7 +110,7 @@ export default function VisitedNationalParks() {
   const [tooltipContent, setTooltipContent] = useState("")
 
   return (
-<Card className="relative bg-gradient-to-br from-sky-700 to-sky-200 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
+<Card className="relative bg-gradient-to-br from-sky-600 to-sky-300 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
   
 
       <CardHeader>
