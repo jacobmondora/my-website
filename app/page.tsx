@@ -180,7 +180,7 @@ useEffect(() => {
 
     {/* Bottom row */}
     <div className="flex justify-evenly px-8 mt-10">
-      <a href="/Jacob_Mondora_Resume.pdf" target="_blank" rel="noreferrer">
+      <a href="/Resume.pdf" target="_blank" rel="noreferrer">
         <Button
           size="lg"
           variant="ghost"
