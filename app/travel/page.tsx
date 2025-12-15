@@ -8,6 +8,7 @@ const VisitedWorldMap = dynamic(() => import("@/components/VisitedWorldMap"), { 
 const VisitedCanadaMap = dynamic(() => import("@/components/VisitedCanadaMap"), { ssr: false })
 const VisitedUSMap = dynamic(() => import("@/components/VisitedUSMap"), { ssr: false })
 const VisitedNationalParks = dynamic(() => import("@/components/VisitedNationalParks"), { ssr: false })
+const rotations = ["-rotate-2", "rotate-1", "-rotate-1", "rotate-2"]
 
 export default function TravelPage() {
   const samplePhotos = [
@@ -34,10 +35,10 @@ export default function TravelPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-sky-900 to-blue-800 relative overflow-hidden">
+    <div className="min-h-screen bg-sky-900 relative overflow-hidden">
+
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/80 via-sky-900/60 to-blue-800/70" />
         <div className="absolute top-1/6 left-1/5 w-80 h-80 rounded-full blur-3xl bg-gradient-to-r from-cyan-400/15 to-sky-500/20" />
         <div className="absolute bottom-1/3 right-1/6 w-96 h-96 rounded-full blur-3xl bg-gradient-to-r from-sky-400/10 to-blue-400/15" />
         <div className="absolute bottom-0 left-0 w-full h-32 opacity-20">
@@ -67,33 +68,30 @@ export default function TravelPage() {
           </p>
         </div>
 
-        {/* Photo Gallery */}
-        <Card className="mb-12 bg-gradient-to-br from-sky-600 to-sky-600 border border-black rounded-xl backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
 
-          <CardHeader>
-            <CardTitle className="text-white flex items-center gap-2 -mt-5">
-              Recent Travels
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {samplePhotos.map((photo) => (
-                <div key={photo.id} className="group">
-                  <div className="aspect-square rounded-lg overflow-hidden bg-white/5 border border-cyan-400/20 mb-3">
-                    <img
-                      src={photo.url || "/placeholder.svg"}
-                      alt={photo.location}
-                      className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="text-center">
-                    <p className="text-white text-sm font-medium">{photo.location}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+
+
+<div className="mb-20 flex flex-wrap justify-center gap-12">
+  {samplePhotos.map((photo, index) => (
+    <div
+      key={photo.id}
+      className={`w-72 aspect-square transform ${rotations[index % rotations.length]} transition-transform hover:rotate-0 hover:scale-105`}
+    >
+      <div className="w-full h-full rounded-xl overflow-hidden shadow-xl border border-white/10 bg-black/20">
+        <img
+          src={photo.url}
+          alt={photo.location}
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      <p className="mt-3 text-center text-white/80 text-sm">
+        {photo.location}
+      </p>
+    </div>
+  ))}
+</div>
+
 
         {/* Maps Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
