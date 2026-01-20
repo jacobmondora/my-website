@@ -70,7 +70,8 @@ const visitedStates = [
   "Maine",
   "Louisiana",
   "Mississippi",
-  "Arkansas"
+  "Arkansas",
+  "Nevada"
 ]
 
 export default function VisitedUSMap() {

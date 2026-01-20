@@ -104,6 +104,24 @@ const visitedNationalParks = [
     latitude: 44.3386,
     longitude: -68.2733,
   },
+
+  {
+    name: "Grand Canyon",
+    latitude: 36.2679,
+    longitude: -112.3535,
+  },
+
+  {
+    name: "Bryce Canyon",
+    latitude: 37.5930,
+    longitude: -112.1871,
+  },
+
+  {
+    name: "Zion",
+    latitude: 37.2982,
+    longitude: -113.0263,
+  },
 ]
 
 export default function VisitedNationalParks() {
