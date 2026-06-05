@@ -29,7 +29,8 @@ const visitedCountries = [
   "Australia",
   "Argentina",
   "Uruguay",
-  "Greece"
+  "Greece",
+  "Greenland"
 ]
 
 // Minimal safe type for react-simple-maps geography data
